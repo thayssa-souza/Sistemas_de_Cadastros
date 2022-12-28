@@ -1,7 +1,3 @@
-// function validateNames(){
-
-// }
-
 // function regexValidateName(){
 //     /^[a-záàâãéèêíïóôõöúçñ ]+$/i
 
@@ -41,3 +37,4 @@ btn.addEventListener("click", async function (event){
     dataSubmit(newClient);
     console.log("cliente cadastrado");
 });
+

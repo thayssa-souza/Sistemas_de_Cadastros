@@ -15,10 +15,8 @@ window.dataSubmit = function(newClient){
     });
     if (!promise) {
       alert("Algo deu errado na requisição. Tente novamente mais tarde");
-      console.log("promise inválida primeiro if");
       return [];
     }
-    console.log("promise deu bom");
     promise.then(response => {
       if(!response.ok){
         alert("Erro na requisição.");
@@ -27,6 +25,10 @@ window.dataSubmit = function(newClient){
     })
     .then(function(data){
       console.log("Data: ", data);
+      var result = data.split("#");
+      //result 1, 3 e 5
+      console.log(result[1]);
+
     });
   } catch (error) {
     console.error("Erro na comunicação com o servidor: ", error);
