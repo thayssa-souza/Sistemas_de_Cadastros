@@ -31,8 +31,43 @@ module.exports.selectCodName = async function selectCodes(tableCode, code){
     .then(function(result){
         const sumResult = result[0].soma;
         const somas = parseInt(sumResult) + parseInt(code);
-        console.log("Total: ", somas);
         return somas;
+    })
+    .fail(function(error){
+        console.log("Erro: ", error);
+    });
+}
+
+module.exports.selectAnimal = async function selectJoinAnimal(animalsTable, tableCode, total){
+    tp.setConnectionConfig(connectionConfig);
+    return tp.sql(`SELECT animal FROM ${animalsTable} INNER JOIN ${tableCode} ON ${total} = ${animalsTable}.total`)
+    .execute()
+    .then(function(result){
+        return console.log(result[0].animal);
+    })
+    .fail(function(error){
+        console.log("Erro: ", error);
+    });
+}
+
+module.exports.selectColor = async function selectJoinColors(colorTable, tableCode, total){
+    tp.setConnectionConfig(connectionConfig);
+    return tp.sql(`SELECT cor FROM ${colorTable} INNER JOIN ${tableCode} ON ${total} = ${colorTable}.total`)
+    .execute()
+    .then(function(result){
+        return console.log(result[0].cor);
+    })
+    .fail(function(error){
+        console.log("Erro: ", error);
+    });
+}
+
+module.exports.selectCountry = async function selectJoinContries(countryTable, tableCode, total){
+    tp.setConnectionConfig(connectionConfig);
+    return tp.sql(`SELECT pais FROM ${countryTable} INNER JOIN ${tableCode} ON ${total} = ${countryTable}.total`)
+    .execute()
+    .then(function(result){
+        return console.log(result[0].pais);
     })
     .fail(function(error){
         console.log("Erro: ", error);
