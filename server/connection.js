@@ -1,3 +1,4 @@
+const { response } = require('express');
 const tp = require('tedious-promises');
 const TYPES = require('tedious').TYPES;
 
@@ -38,36 +39,12 @@ module.exports.selectCodName = async function selectCodes(tableCode, code){
     });
 }
 
-module.exports.selectAnimal = async function selectJoinAnimal(animalsTable, tableCode, total){
+module.exports.selectAnimal = async function selectJoinAnimal(animalsTable, colorTable, countryTable, excludedColors, total){
     tp.setConnectionConfig(connectionConfig);
-    return tp.sql(`SELECT animal FROM ${animalsTable} INNER JOIN ${tableCode} ON ${total} = ${animalsTable}.total`)
+    return tp.sql(`SELECT animal, pais, ${colorTable}.cor FROM ${animalsTable} JOIN ${countryTable} ON ${total} = ${animalsTable}.total AND ${animalsTable}.total = ${countryTable}.total JOIN ${colorTable} ON ${colorTable}.total = ${countryTable}.total LEFT JOIN ${excludedColors} ON ${colorTable}.cor = ${excludedColors}.cor AND ${colorTable}.total = ${excludedColors}.total WHERE ${excludedColors}.id IS NULL`)
     .execute()
     .then(function(result){
-        return console.log(result[0].animal);
-    })
-    .fail(function(error){
-        console.log("Erro: ", error);
-    });
-}
-
-module.exports.selectColor = async function selectJoinColors(colorTable, tableCode, total){
-    tp.setConnectionConfig(connectionConfig);
-    return tp.sql(`SELECT cor FROM ${colorTable} INNER JOIN ${tableCode} ON ${total} = ${colorTable}.total`)
-    .execute()
-    .then(function(result){
-        return console.log(result[0].cor);
-    })
-    .fail(function(error){
-        console.log("Erro: ", error);
-    });
-}
-
-module.exports.selectCountry = async function selectJoinContries(countryTable, tableCode, total){
-    tp.setConnectionConfig(connectionConfig);
-    return tp.sql(`SELECT pais FROM ${countryTable} INNER JOIN ${tableCode} ON ${total} = ${countryTable}.total`)
-    .execute()
-    .then(function(result){
-        return console.log(result[0].pais);
+        response.send();
     })
     .fail(function(error){
         console.log("Erro: ", error);

@@ -17,9 +17,7 @@ app.post('/', async (request, response) => {
 
     const somas = await promise1 + await promise2 + await promise3;
 
-    await connection.selectAnimal("tbs_animais", "tbs_cod_nome", somas);
-    connection.selectColor("tbs_cores", "tbs_cod_nome", somas);
-    connection.selectCountry("tbs_paises", "tbs_cod_nome", somas);
+    connection.selectAnimal("tbs_animais", "tbs_cores", "tbs_paises", "tbs_cores_excluidas", somas);
 });
 
 app.listen(port, () => {
