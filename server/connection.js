@@ -67,9 +67,11 @@ module.exports.selectCodName = function selectCodes(tableCode, code){
             requestSelect.on("row", function(columns){
                 columns.forEach(function(column){
                     if(column.value == null){
-                        console.log("Nulo.");
+                        return console.log("Nulo.");
                     } else {
-                        console.log("Soma selecionada");
+                        let codeSoma = parseInt(column.value) + parseInt(code);
+                        console.log(`${tableCode}: ${codeSoma}`);
+                        return codeSoma;
                     }
                 });
             });
@@ -83,3 +85,4 @@ module.exports.selectCodName = function selectCodes(tableCode, code){
     });
     newConnection.connect();
 }
+
