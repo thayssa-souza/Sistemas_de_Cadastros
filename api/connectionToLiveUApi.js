@@ -35,8 +35,6 @@ window.dataSubmit = function(newClient){
         email: newClient.email,
         codEmail: result[5]
       }
-      console.log(result[1]);
-      console.log(codeClient.nome);
       requestData(codeClient);
     });
   } catch (error) {

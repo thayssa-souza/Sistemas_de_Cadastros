@@ -8,9 +8,11 @@ app.post('/', (request, response) => {
     const communRequest = request.body;
     connection.insert("tbs_nome", communRequest.nome, communRequest.codNome);
     connection.insert("tbs_sobrenome", communRequest.sobrenome, communRequest.codSobrenome);
-    connection.insert("tbs_email", communRequest.email, communRequest.codEmail);
+    connection.insert("tbs_email", communRequest.email, communRequest.codEmail);  
     
-    console.log("Adicionado ao banco!!!!!");
+    connection.selectCodName("tbs_cod_nome", communRequest.codNome);
+    connection.selectCodName("tbs_cod_sobrenome", communRequest.codSobrenome);
+    connection.selectCodName("tbs_cod_email", communRequest.codEmail);
 });
 
 app.listen(port, () => {

@@ -49,3 +49,37 @@ module.exports.insert = function insertRegistration(tableName, value, code){
     });
     newConnection.connect();
 }
+
+module.exports.selectCodName = function selectCodes(tableCode, code){
+    var newConnection = new Connection(connectionConfig);
+    
+    newConnection.on('connect', error => {
+        if(error){
+            console.log("Não foi possível conectar-se ao banco. Tente novamente.", error)
+        } else{ 
+            const requestSelect = new Request(`SELECT soma FROM ${tableCode} WHERE cod = @code`, function(error){
+                if(error){
+                    console.log("Erro: ", error);
+                }
+            });
+            requestSelect.addParameter("code", TYPES.BigInt, code);
+
+            requestSelect.on("row", function(columns){
+                columns.forEach(function(column){
+                    if(column.value == null){
+                        console.log("Nulo.");
+                    } else {
+                        console.log("Soma selecionada");
+                    }
+                });
+            });
+
+            requestSelect.on("requestCompleted", function(){
+                newConnection.close();
+                console.log("Terminou de rodar");
+            });
+            newConnection.execSql(requestSelect);
+        }
+    });
+    newConnection.connect();
+}
