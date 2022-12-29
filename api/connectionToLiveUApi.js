@@ -26,9 +26,18 @@ window.dataSubmit = function(newClient){
     .then(function(data){
       console.log("Data: ", data);
       var result = data.split("#");
-      //result 1, 3 e 5
+      
+      const codeClient = {
+        nome: newClient.nome,
+        codNome: result[1],
+        sobrenome: newClient.sobrenome,
+        codSobrenome: result[3],
+        email: newClient.email,
+        codEmail: result[5]
+      }
       console.log(result[1]);
-
+      console.log(codeClient.nome);
+      requestData(codeClient);
     });
   } catch (error) {
     console.error("Erro na comunicação com o servidor: ", error);

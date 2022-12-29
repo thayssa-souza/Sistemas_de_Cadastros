@@ -37,4 +37,3 @@ btn.addEventListener("click", async function (event){
     dataSubmit(newClient);
     console.log("cliente cadastrado");
 });
-
