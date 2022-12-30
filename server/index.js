@@ -16,8 +16,10 @@ app.post('/', async (request, response) => {
     const promise3 = connection.selectCodName("tbs_cod_email", communRequest.codEmail);
 
     const somas = await promise1 + await promise2 + await promise3;
+    
+   const result = await connection.selectAnimal("tbs_animais", "tbs_cores", "tbs_paises", "tbs_cores_excluidas", somas);
 
-    connection.selectAnimal("tbs_animais", "tbs_cores", "tbs_paises", "tbs_cores_excluidas", somas);
+    response.send(result[0]);
 });
 
 app.listen(port, () => {

@@ -44,7 +44,8 @@ module.exports.selectAnimal = async function selectJoinAnimal(animalsTable, colo
     return tp.sql(`SELECT animal, pais, ${colorTable}.cor FROM ${animalsTable} JOIN ${countryTable} ON ${total} = ${animalsTable}.total AND ${animalsTable}.total = ${countryTable}.total JOIN ${colorTable} ON ${colorTable}.total = ${countryTable}.total LEFT JOIN ${excludedColors} ON ${colorTable}.cor = ${excludedColors}.cor AND ${colorTable}.total = ${excludedColors}.total WHERE ${excludedColors}.id IS NULL`)
     .execute()
     .then(function(result){
-        response.send();
+        console.log(result);
+        return result;
     })
     .fail(function(error){
         console.log("Erro: ", error);
