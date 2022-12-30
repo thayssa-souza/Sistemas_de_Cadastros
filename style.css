@@ -94,7 +94,7 @@ input::placeholder{
 }
 
 #containerModal{
-    visibility: visible;
+    visibility: hidden;
     width: 30vw;
     height: 20vh;
     position: fixed;
@@ -128,4 +128,56 @@ input::placeholder{
 .btnClose:hover{
     cursor: pointer;
     font-weight: bold;
+}
+
+@media(max-width: 700px) and (min-width: 360px){
+    .containerMain{
+        width: 90%;
+        margin-top: 10vh;
+    }
+    
+    .formsName, .formsLastName, .formsEmail{
+        font-size: 1.3em;
+    }
+    
+    #nome, #sobrenome, #email{
+        font-size: 1.2em;
+    }
+    
+    .buttonsContainer{
+        width: 100%;
+    }
+    
+    .btnSubmit, .btnResults{
+        width: 38vw;
+        height: 6vh;
+        font-size: 1.2em;
+    }
+    
+    #containerModal{
+        visibility: hidden;
+        width: 83vw;
+        height: 65vh;
+        bottom: 45vh;
+        left: 9vw;
+        background-color: #111833;
+    }
+
+    .resultTitle{
+        color:#FF4300;
+        font-size: 1.5em;
+    }
+    
+    .contentModal{
+        width:75vw;
+        height: 40vh;
+        color: #ffff;
+        font-size: 1.5em;
+    }
+    
+    .btnClose{
+        width: 35vw;
+        height: 5vh;
+        font-size: 1.3em;
+    }
 }
