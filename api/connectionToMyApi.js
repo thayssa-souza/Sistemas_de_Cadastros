@@ -27,7 +27,13 @@ window.requestData = function(codeClient){
         return response.json();
         })
         .then(function(data){
-           
+           const animalInfos = document.getElementById('dataAnimal');
+           const colorInfos = document.getElementById('dataColor');
+           const countryInfos = document.getElementById('dataCountry');
+
+           animalInfos.textContent = `Animal: ${data.animal}`;
+           colorInfos.textContent = `Cor: ${data.cor}`;
+           countryInfos.textContent = `País: ${data.pais}`;
         })
     } catch (error) {
         console.error("Erro na comunicação com o servidor: ", error);

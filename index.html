@@ -18,14 +18,25 @@
             <section class="sectionForms">
                 <form class="containerForms">
                     <label for="nome" name="nome" class="formsName">Nome:</label>
-                    <input id="nome" type="text" placeholder="Digite seu nome" required />
+                    <input id="nome" type="text" placeholder="Digite seu nome"/>
                     <label for="sobrenome" name="sobrenome" class="formsLastName">Sobrenome:</label>
-                    <input id="sobrenome" type="text" placeholder="Digite seu sobrenome" required />
+                    <input id="sobrenome" type="text" placeholder="Digite seu sobrenome"/>
                     <label for="email" name="email" class="formsEmail">E-mail:</label>
-                    <input id="email" type="email" placeholder="exemplo@exemplo.com" required />
-                    <button class="btnSubmit" id="btnSubmit">Cadastrar</button>
+                    <input id="email" type="email" placeholder="exemplo@exemplo.com"/>
+                    <div class="buttonsContainer">
+                        <button class="btnSubmit" id="btnSubmit">Cadastrar dados</button>
+                        <button class="btnResults" id="btnResults">Mostrar resultado</button>
+                    </div>
                 </form>
             </section>
+        </section>
+        <section class="containerModal" id="containerModal">
+            <div class="contentModal">
+                <h3 id="dataAnimal">olá</h3>
+                <h3 id="dataColor">olá</h3>
+                <h3 id="dataCountry">olá</h3>
+            </div>
+            <button class="btnClose" id="btnClose">Fechar</button>
         </section>
     </main>
     <footer></footer>

@@ -7,16 +7,21 @@
     font-family: 'Source Sans Pro', sans-serif;
 }
 
+body{
+    background-color: #111833;
+}
+
 .containerMain{
     width: 40%;
-    height: 70vh;
+    height: 75vh;
     margin:auto;
     margin-top: 15vh;
-    box-shadow: 5px 15px 8px #800f2f;
+    box-shadow: 2px 2px 15px 5px #800f2f;
     border-radius: 10px;
 }
 
 .containerTitle{
+    color: #FF4300;
     width:100%;
     height: 15vh;
     display: flex;
@@ -25,9 +30,13 @@
     align-items: center;
 }
 
+.title{
+    font-size: 1.5em;
+}
+
 .containerForms{
     width: 100%;
-    height: 50vh;
+    height: 55vh;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -39,24 +48,84 @@
     height: 5vh;
     margin-top: 5vh;
     font-size: 1.2em;
+    color: #FF4300;
 }
 
 #nome, #sobrenome, #email{
     width:70%;
     height: 8vh;
     border-radius: 5px;
+    background-color: #cce3de;
+    font-size: 1.1em;
 }
 input::placeholder{
     text-align: center;
-    font-size: 1.2em;
+    color: black;
 }
 
-.btnSubmit{
-    margin-top: 2vh;
-    padding: 1.2vh 1vh 1.2vh 1vh;
+.buttonsContainer{
+    width: 70%;
+    height: 12vh;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding-top: 5vh;
+}
+
+.btnSubmit, .btnResults{
+    width: 10vw;
+    height: 6vh;
     font-size: 1em;
 }
 .btnSubmit:hover{
+    cursor: pointer;
+    font-weight: bold;
+    background-color: #FF4300;
+    color: white;
+    border: none;
+}
+
+.btnResults:hover{
+    cursor: pointer;
+    font-weight: bold;
+    background-color: #FF4300;
+    color: white;
+    border: none;
+}
+
+#containerModal{
+    visibility: visible;
+    width: 30vw;
+    height: 20vh;
+    position: fixed;
+    top: 45vh;
+    left: 35vw;
+    margin: auto;
+    border-radius: 10px;
+    background-color: #e6e8e6;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.contentModal{
+    width:20vw;
+    height: 15vh;
+    color: black;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.btnClose{
+    width: 5vw;
+    height: 4vh;
+    font-size: 1em;
+}
+
+.btnClose:hover{
     cursor: pointer;
     font-weight: bold;
 }
