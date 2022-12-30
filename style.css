@@ -93,20 +93,28 @@ input::placeholder{
     border: none;
 }
 
+.displayFlex {
+    display: flex;
+}
+
+.displayNone {
+    display: none;
+}
+
 #containerModal{
+    display: none;
     background-color: #111833;
-    visibility: hidden;
     width: 38%;
     height: 62vh;
     position: fixed;
-    top: 24vh;
+    top: 20vh;
     left: 31vw;
     margin: auto;
     border-radius: 10px;
-    display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
+    text-align: center;
 }
 
 .resultTitle{
@@ -179,10 +187,9 @@ input::placeholder{
     }
     
     #containerModal{
-        visibility: hidden;
         width: 83vw;
         height: 65vh;
-        bottom: 45vh;
+        bottom: 20vh;
         left: 9vw;
         background-color: #111833;
     }

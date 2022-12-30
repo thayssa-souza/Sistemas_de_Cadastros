@@ -27,6 +27,8 @@ window.requestData = function(codeClient){
         return response.json();
         })
         .then(function(data){
+            document.getElementById("btnResults").removeAttribute("disabled");
+
            const animalInfos = document.getElementById('dataAnimal');
            const colorInfos = document.getElementById('dataColor');
            const countryInfos = document.getElementById('dataCountry');
