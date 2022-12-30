@@ -6,6 +6,9 @@ window.requestData = function(codeClient){
         method: "POST",
         headers: {
             "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": hostUrl,
+            "Access-Control-Allow-Methods": "POST, GET",
+            "Access-Control-Allow-Headers": "*"
         },
         body: JSON.stringify({
             nome: codeClient.nome,

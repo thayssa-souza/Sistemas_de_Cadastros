@@ -3,6 +3,9 @@ const app = express();
 const port = 3000;
 const connection = require('./connection.js');
 app.use(express.json());
+const cors = require('cors');
+
+app.use(cors());
 
 app.post('/', async (request, response) => {
     const communRequest = request.body;
